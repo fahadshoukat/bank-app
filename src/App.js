@@ -1,11 +1,12 @@
+import DisplayTimeAndDate from "./components/timeAndDate/DisplayTimeAndDate";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-     
-    </div>
+    <>
+      <DisplayTimeAndDate />
+    </>
   );
 }
 
