@@ -12,7 +12,7 @@ const CreateAccount = () => {
     <div className="container">
       <div className="row mt-5">
         <div className="col col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-          <form className="row g-3">
+          <form className="row g-0">
             <div className="bg-primary text-white p-3"> 
             <h3 className="text-center">Enter Account Details</h3>
             <p className="text-center m-0">All fields are required<span className="text-danger">*</span></p>
@@ -32,7 +32,6 @@ const CreateAccount = () => {
                 className="form-control"
                 id="validationDefault02"
                 placeholder="Enter CNIC XXXXXXXXXXXXX"
-                size={13}
                 required
               />
             </div>
