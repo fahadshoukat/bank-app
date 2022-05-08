@@ -6,7 +6,7 @@ const CreateAccount = () => {
   const navigate = useNavigate();
 
   const [users, setUsers] = useState({
-    name: '', cnic: '', branchCode: '', accountNumber: '', accountType: '', deposit: '',
+    name: '', cnic: Number(''), branchCode: '', accountNumber: '', accountType: '', deposit: '',
   });
 
   let name, value
@@ -23,7 +23,7 @@ const CreateAccount = () => {
   return (
     <div className="container">
       <div className="row mt-5">
-        <div className="col col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+        <div className="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
           <form className="row" onSubmit={handleSubmit}>
             <div className="bg-primary text-white p-3"> 
             <h3 className="text-center">Enter Account Details</h3>
@@ -74,7 +74,7 @@ const CreateAccount = () => {
             </div>
             <div className="col-md-6 p-2">
               <input
-                type="text"
+                type="number"
                 name="accountNumber"
                 value={users.accountNumber}
                 onChange={handleInputs}
@@ -101,7 +101,7 @@ const CreateAccount = () => {
             </div>
             <div className="col-md-6 p-2">
               <input
-                type="text"
+                type="number"
                 name="deposit"
                 value={users.deposit}
                 onChange={handleInputs}
