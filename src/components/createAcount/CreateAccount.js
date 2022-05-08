@@ -23,13 +23,13 @@ const CreateAccount = () => {
   return (
     <div className="container">
       <div className="row mt-5">
-        <div className="col-sm-8 offset-sm-2 col-md-6 offset-md-3">
-          <form className="row" onSubmit={handleSubmit}>
+        <div className="col-xs-8 offset-xs-2 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+          <form className="row gy-3" onSubmit={handleSubmit}>
             <div className="bg-primary text-white p-3"> 
             <h3 className="text-center">Enter Account Details</h3>
             <p className="text-center m-0">All fields are required<span className="text-danger">*</span></p>
             </div>
-            <div className="col-md-6 p-2">
+            <div className="col-md-6">
               <input
                 type="text"
                 name="name"
@@ -41,7 +41,7 @@ const CreateAccount = () => {
                 required
               />
             </div>
-            <div className="col-md-6  p-2">
+            <div className="col-md-6">
               <input
                 type="number"
                 name="cnic"
@@ -55,7 +55,7 @@ const CreateAccount = () => {
                 required
               />
             </div>
-            <div className="col-md-6  p-2">
+            <div className="col-md-6">
               <div className="input-group">
                 <input
                   type="number"
@@ -72,7 +72,7 @@ const CreateAccount = () => {
                 />
               </div>
             </div>
-            <div className="col-md-6 p-2">
+            <div className="col-md-6">
               <input
                 type="number"
                 name="accountNumber"
@@ -86,7 +86,7 @@ const CreateAccount = () => {
                 required
               />
             </div>
-            <div className="col-md-6 p-2">
+            <div className="col-md-6">
               <select className="form-select" id="validationDefault04" 
               name="accountType"
               value={users.accountType}
@@ -99,7 +99,7 @@ const CreateAccount = () => {
                 <option>Saving</option>
               </select>
             </div>
-            <div className="col-md-6 p-2">
+            <div className="col-md-6">
               <input
                 type="number"
                 name="deposit"
@@ -111,7 +111,7 @@ const CreateAccount = () => {
                 required
               />
             </div>
-            <div className="col-12 text-end p-2">
+            <div className="col-12 text-end">
               <button className="btn btn-success" type="submit">
                 Create Account
               </button>
