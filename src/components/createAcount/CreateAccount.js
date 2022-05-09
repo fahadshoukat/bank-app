@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const CreateAccount = () => {
 
   const navigate = useNavigate();
 
   const [users, setUsers] = useState({
-    name: '', cnic: Number(''), branchCode: '', accountNumber: '', accountType: '', deposit: '',
+    name: '', cnic: '', branchCode: '', accountNumber: '', accountType: '', deposit: '',
   });
 
   let name, value
@@ -16,14 +18,28 @@ const CreateAccount = () => {
     value = e.target.value
     setUsers({...users, [name]: value})
   }
+
+  function showToast(){
+    toast.success('account create!', {
+      position: "top-right",
+      autoClose: 5000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      });
+  }
+
   function handleSubmit(e){
     e.preventDefault();
     navigate('/accounts');
+    showToast();
   }
   return (
     <div className="container">
       <div className="row mt-5">
-        <div className="col-xs-8 offset-xs-2 col-sm-8 offset-sm-2 col-md-6 offset-md-3">
+        <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
           <form className="row gy-3" onSubmit={handleSubmit}>
             <div className="bg-primary text-white p-3"> 
             <h3 className="text-center">Enter Account Details</h3>
