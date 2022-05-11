@@ -20,7 +20,7 @@ const CreateAccount = () => {
   }
 
   function showToast(){
-    toast.success('account create!', {
+    toast.success(`Dear ${users.name}, your bank account has been created against Account #: ${users.accountNumber}`, {
       position: "top-right",
       autoClose: 5000,
       hideProgressBar: false,
