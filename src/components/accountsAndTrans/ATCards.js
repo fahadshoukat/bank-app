@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { UserContext } from "../context/Context";
 
 const ATCards = () => {
+  const {users} = useContext(UserContext)
   const navigate = useNavigate();
   return (
     <div className="container px-4 mt-5">
@@ -16,7 +18,7 @@ const ATCards = () => {
             </div>
             <hr />
             <div className="text-center">
-              <h5>0</h5>
+              <h5>{users.length}</h5>
               <h5>Accounts</h5>
             </div>
           </div>

@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const CreateAccount = () => {
 
-  const {users, setUsers, setIsUsers} = useContext(UserContext)
+  const {users, setUsers, inputs, setInputs, setIsUsers} = useContext(UserContext)
   const navigate = useNavigate();
 
   let name, value
@@ -15,7 +15,7 @@ const CreateAccount = () => {
   function handleInputs(e){
     name = e.target.name
     value = e.target.value
-    setUsers({...users, [name]: value, date: new Date().toLocaleDateString()})
+    setInputs({...inputs, [name]: value, date: new Date().toLocaleDateString()})
   }
 
   function showToast(){
@@ -33,9 +33,9 @@ const CreateAccount = () => {
   function handleSubmit(e){
     e.preventDefault();
     navigate('/accounts');
+    setUsers([...users, inputs]);
     showToast();
     setIsUsers(true);
-    console.log(users);
   }
   return (
     <div className="container">

@@ -3,7 +3,7 @@ import React, { createContext, useState } from "react";
 export const UserContext = createContext();
 
 const ContextProvider = ({ children }) => {
-  const [users, setUsers] = useState({
+  const [inputs, setInputs] = useState({
     name: "",
     cnic: "",
     branchCode: "",
@@ -13,10 +13,11 @@ const ContextProvider = ({ children }) => {
     date: "",
   });
 
+  const [users, setUsers] = useState([]);
   const [isUsers, setIsUsers] = useState(false);
 
   return (
-    <UserContext.Provider value={{ users, setUsers, isUsers, setIsUsers }}>
+    <UserContext.Provider value={{ users, setUsers, setInputs, inputs, isUsers, setIsUsers }}>
       {children}
     </UserContext.Provider>
   );
