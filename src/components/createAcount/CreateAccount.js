@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import { UserContext } from "../context/Context";
+
 import 'react-toastify/dist/ReactToastify.css';
 
 const CreateAccount = () => {
 
+  const {users, setUsers, setIsUsers} = useContext(UserContext)
   const navigate = useNavigate();
-
-  const [users, setUsers] = useState({
-    name: '', cnic: '', branchCode: '', accountNumber: '', accountType: '', deposit: '',
-  });
 
   let name, value
 
   function handleInputs(e){
     name = e.target.name
     value = e.target.value
-    setUsers({...users, [name]: value})
+    setUsers({...users, [name]: value, date: new Date().toLocaleDateString()})
   }
 
   function showToast(){
@@ -35,6 +34,8 @@ const CreateAccount = () => {
     e.preventDefault();
     navigate('/accounts');
     showToast();
+    setIsUsers(true);
+    console.log(users);
   }
   return (
     <div className="container">
