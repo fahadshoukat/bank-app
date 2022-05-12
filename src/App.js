@@ -23,7 +23,6 @@ function App() {
           <Route path="createAccount" element={<CreateAccount />} />
           <Route path="accounts" element={<Accounts />} />
           <Route path="transactions" element={<Transactions />} />
-          <Route path="accountDetails" />
         </Routes>
       </ContextProvider>
     </BrowserRouter>
