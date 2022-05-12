@@ -14,7 +14,7 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      {/* <DisplayTimeAndDate /> */}
+      <DisplayTimeAndDate />
       <ContextProvider>
         <NavBar />
         <ToastContainer />
@@ -23,6 +23,7 @@ function App() {
           <Route path="createAccount" element={<CreateAccount />} />
           <Route path="accounts" element={<Accounts />} />
           <Route path="transactions" element={<Transactions />} />
+          <Route path="accountDetails" />
         </Routes>
       </ContextProvider>
     </BrowserRouter>

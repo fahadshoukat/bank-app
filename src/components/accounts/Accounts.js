@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/Context";
 
 const Accounts = () => {
@@ -43,7 +43,7 @@ const Accounts = () => {
                     return (
                       <tr key={index}>
                         <td>{user.branchCode}</td>
-                        <td>{user.accountNumber}</td>
+                        <td><Link to='accountDetails'>{user.accountNumber}</Link></td>
                         <td>{user.name}</td>
                         <td>{user.date}</td>
                         <td>{user.accountType}</td>

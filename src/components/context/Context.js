@@ -15,9 +15,10 @@ const ContextProvider = ({ children }) => {
 
   const [users, setUsers] = useState([]);
   const [isUsers, setIsUsers] = useState(false);
+  const [transactions, setTransactions] = useState([]);
 
   return (
-    <UserContext.Provider value={{ users, setUsers, setInputs, inputs, isUsers, setIsUsers }}>
+    <UserContext.Provider value={{ users, setUsers, transactions, setTransactions, setInputs, inputs, isUsers, setIsUsers }}>
       {children}
     </UserContext.Provider>
   );
