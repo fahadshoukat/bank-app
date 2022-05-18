@@ -14,7 +14,7 @@ import "./App.css";
 function App() {
   return (
     <BrowserRouter>
-      <DisplayTimeAndDate />
+      {/* <DisplayTimeAndDate /> */}
       <ContextProvider>
         <NavBar />
         <ToastContainer />

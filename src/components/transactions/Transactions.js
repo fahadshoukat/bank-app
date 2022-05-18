@@ -4,7 +4,8 @@ import { UserContext } from "../context/Context";
 
 const Transactions = () => {
     const navigate = useNavigate();
-    const {transactions, isUsers} = useContext(UserContext);
+    const {users, isUsers, transactions } = useContext(UserContext);
+    console.log(transactions);
   return (
     <div className="container">
       <div className="row">

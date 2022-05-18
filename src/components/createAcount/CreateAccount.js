@@ -1,14 +1,21 @@
-import React, { useContext } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../context/Context";
-import { v4 as uuidv4 } from 'uuid';
+import { v4 as uuidv4 } from "uuid";
 
 import "react-toastify/dist/ReactToastify.css";
 
 const CreateAccount = () => {
-  const { users, setUsers, inputs, setInputs, setIsUsers, transactions, setTransactions } =
-    useContext(UserContext);
+  const [inputs, setInputs] = useState({
+    name: "",
+    cnic: "",
+    branchCode: "",
+    accountNumber: "",
+    accountType: "",
+    deposit: ""
+  });
+  const { users, setUsers, setIsUsers, transactions, setTransactions } = useContext(UserContext);
   const navigate = useNavigate();
 
   let name, value;
@@ -23,9 +30,27 @@ const CreateAccount = () => {
     });
   }
 
+  const transObj = {
+    transactionID: uuidv4(),
+    time: new Date().toLocaleTimeString(),
+    date: inputs.date,
+    accountNo: inputs.accountNumber,
+    type: inputs.accountType,
+    amount: inputs.deposit
+  }
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    navigate("/accounts");
+    setUsers([...users, inputs]);
+    setTransactions([...transactions, transObj])
+    setIsUsers(true);
+    showToast();
+  }
+
   function showToast() {
     toast.success(
-      `Dear ${users.name}, your bank account has been created against Account #: ${users.accountNumber}`,
+      `Dear ${inputs.name}, your bank account has been created against Account #: ${inputs.accountNumber}`,
       {
         position: "top-right",
         autoClose: 5000,
@@ -38,21 +63,6 @@ const CreateAccount = () => {
     );
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    navigate("/accounts");
-    setUsers([...users, inputs]);
-    setTransactions([...transactions, {
-      transactionID: uuidv4(),
-      time: new Date().toLocaleTimeString(),
-      date: new Date().toLocaleDateString(),
-      accountNo: users.accountNumber,
-      type: 'Credit',
-      amount: users.deposit,
-    }])
-    setIsUsers(true);
-    showToast();
-  }
   return (
     <div className="container">
       <div className="row mt-5">
