@@ -44,7 +44,7 @@ const Accounts = () => {
                       <tr key={index}>
                         <td>{user.branchCode}</td>
                         <td>
-                          <a className="text-decoration-none">
+                          <a href="" onClick={() => alert('click on me')} className="text-decoration-none">
                             {user.accountNumber}
                           </a>
                         </td>

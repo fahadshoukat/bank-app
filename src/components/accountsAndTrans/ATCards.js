@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { UserContext } from "../context/Context";
 
 const ATCards = () => {
-  const {users} = useContext(UserContext)
+  const {users, transactions} = useContext(UserContext)
   const navigate = useNavigate();
   return (
     <div className="container px-4 mt-5">
@@ -32,7 +32,7 @@ const ATCards = () => {
             </div>
             <hr />
             <div className="text-center">
-              <h5>0</h5>
+              <h5>{transactions.length}</h5>
               <h5>Transactions</h5>
             </div>
           </div>
