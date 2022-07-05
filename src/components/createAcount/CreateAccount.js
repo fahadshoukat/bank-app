@@ -4,9 +4,6 @@ import { toast } from "react-toastify";
 import { UserContext } from "../context/Context";
 import { v4 as uuidv4 } from "uuid";
 
-import { collection } from "firebase/firestore"; 
-import { firestore } from "../../config/firebase";
-
 import "react-toastify/dist/ReactToastify.css";
 
 const CreateAccount = () => {
@@ -20,10 +17,6 @@ const CreateAccount = () => {
   });
   const { users, setUsers, setIsUsers, transactions, setTransactions } = useContext(UserContext);
   const navigate = useNavigate();
-
-  const collectionName = 'users';
-  const docCollectionRef = collection(firestore, collectionName);
-  console.log(docCollectionRef);
 
   let name, value;
 

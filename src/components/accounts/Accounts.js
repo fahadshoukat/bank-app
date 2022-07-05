@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/Context";
 
 const Accounts = () => {
@@ -44,9 +44,9 @@ const Accounts = () => {
                       <tr key={index}>
                         <td>{user.branchCode}</td>
                         <td>
-                          <a href="" onClick={() => alert('click on me')} className="text-decoration-none">
+                          <Link to='#' className="text-decoration-none" >
                             {user.accountNumber}
-                          </a>
+                          </Link>
                         </td>
                         <td>{user.name}</td>
                         <td>{user.date}</td>

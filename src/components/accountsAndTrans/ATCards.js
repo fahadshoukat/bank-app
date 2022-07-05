@@ -9,7 +9,7 @@ const ATCards = () => {
     <div className="container px-4 mt-5">
       <div className="row gx-5">
         <div className="col">
-          <div className="p-3 border border-danger shadow-lg bg-light text-dark">
+          <div className="p-3 border shadow-lg bg-light text-dark">
             <h5 className="text-center">Accounts</h5>
             <hr />
             <div className="d-flex justify-content-center">
@@ -24,7 +24,7 @@ const ATCards = () => {
           </div>
         </div>
         <div className="col">
-          <div className="p-3 border border-danger shadow-lg bg-light text-dark">
+          <div className="p-3 border shadow-lg bg-light text-dark">
             <h5 className="text-center">Transactions</h5>
             <hr />
             <div className="text-center">
