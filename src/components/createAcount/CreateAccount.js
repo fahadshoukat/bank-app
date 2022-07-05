@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { UserContext } from "../context/Context";
 import { v4 as uuidv4 } from "uuid";
+import { collection, addDoc } from "firebase/firestore/lite";
+import {firestore} from "../../config/firebase" 
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -39,8 +41,14 @@ const CreateAccount = () => {
     amount: inputs.deposit
   }
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
+    try {
+      const docRef = await addDoc(collection(firestore, "users"), {...inputs});
+      console.log("Document written with ID: ", docRef.id);
+    } catch (e) {
+      console.error("Error adding document: ", e);
+    }
     navigate("/accounts");
     setUsers([...users, inputs]);
     setTransactions([...transactions, transObj])
