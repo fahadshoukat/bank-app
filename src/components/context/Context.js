@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-
 export const UserContext = createContext();
 
 const ContextProvider = ({ children }) => {
@@ -9,8 +8,8 @@ const ContextProvider = ({ children }) => {
   const [transactions, setTransactions] = useState([]);
 
   return (
-    <UserContext.Provider value={{ users, setUsers, isUsers, setIsUsers, transactions, setTransactions }}>
-      {children}
+    <UserContext.Provider value={ { users, setUsers, isUsers, setIsUsers, transactions, setTransactions } }>
+      { children }
     </UserContext.Provider>
   );
 };

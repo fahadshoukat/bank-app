@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import { UserContext } from "../context/Context";
 import { v4 as uuidv4 } from "uuid";
 import { collection, addDoc } from "firebase/firestore/lite";
-import {firestore} from "../../config/firebase" 
+import { firestore } from "../../config/firebase"
 
 import "react-toastify/dist/ReactToastify.css";
 
@@ -44,16 +44,18 @@ const CreateAccount = () => {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      const docRef = await addDoc(collection(firestore, "users"), {...inputs});
+      const docRef = await addDoc(collection(firestore, "users"), { ...inputs });
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
-    navigate("/accounts");
+
     setUsers([...users, inputs]);
     setTransactions([...transactions, transObj])
     setIsUsers(true);
+    navigate("/accounts");
     showToast();
+
   }
 
   function showToast() {
@@ -75,7 +77,7 @@ const CreateAccount = () => {
     <div className="container">
       <div className="row mt-5">
         <div className="col-sm-10 offset-sm-1 col-md-6 offset-md-3">
-          <form className="row gy-3" onSubmit={handleSubmit}>
+          <form className="row gy-3" onSubmit={ handleSubmit }>
             <div className="bg-primary text-white p-3">
               <h3 className="text-center">Enter Account Details</h3>
               <p className="text-center m-0">
@@ -86,8 +88,8 @@ const CreateAccount = () => {
               <input
                 type="text"
                 name="name"
-                value={users.name}
-                onChange={handleInputs}
+                // value={users.name}
+                onChange={ handleInputs }
                 className="form-control"
                 id="validationDefault01"
                 placeholder="Enter Full Name"
@@ -98,8 +100,8 @@ const CreateAccount = () => {
               <input
                 type="number"
                 name="cnic"
-                value={users.cnic}
-                onChange={handleInputs}
+                // value={users.cnic}
+                onChange={ handleInputs }
                 className="form-control"
                 id="validationDefault02"
                 placeholder="Enter CNIC without dashes"
@@ -113,14 +115,14 @@ const CreateAccount = () => {
                 <input
                   type="number"
                   name="branchCode"
-                  value={users.branchCode}
-                  onChange={handleInputs}
+                  // value={users.branchCode}
+                  onChange={ handleInputs }
                   className="form-control"
                   id="validationDefaultUsername"
                   aria-describedby="inputGroupPrepend2"
                   placeholder="Enter Branch Code (1-99)"
-                  min={1}
-                  max={99}
+                  min={ 1 }
+                  max={ 99 }
                   required
                 />
               </div>
@@ -129,8 +131,8 @@ const CreateAccount = () => {
               <input
                 type="number"
                 name="accountNumber"
-                value={users.accountNumber}
-                onChange={handleInputs}
+                // value={users.accountNumber}
+                onChange={ handleInputs }
                 className="form-control"
                 id="validationDefault03"
                 placeholder="Account Number (Length must be 9)"
@@ -144,8 +146,8 @@ const CreateAccount = () => {
                 className="form-select"
                 id="validationDefault04"
                 name="accountType"
-                value={users.accountType}
-                onChange={handleInputs}
+                // value={users.accountType}
+                onChange={ handleInputs }
                 required
               >
                 <option defaultValue="Choose Account Type">
@@ -159,8 +161,8 @@ const CreateAccount = () => {
               <input
                 type="number"
                 name="deposit"
-                value={users.deposit}
-                onChange={handleInputs}
+                // value={users.deposit}
+                onChange={ handleInputs }
                 className="form-control"
                 id="validationDefault05"
                 placeholder="Initial Deposit(Minimum RS/500.)"

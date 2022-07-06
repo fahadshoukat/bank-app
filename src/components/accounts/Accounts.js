@@ -3,9 +3,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/Context";
 
 const Accounts = () => {
-  const { users, isUsers } = useContext(UserContext);
 
+  const { users, isUsers } = useContext(UserContext);
   const navigate = useNavigate();
+
   return (
     <div className="container">
       <div className="row">
@@ -13,19 +14,19 @@ const Accounts = () => {
           <div className="d-flex justify-content-between">
             <button
               className="btn btn-outline-danger"
-              onClick={() => navigate("/")}
+              onClick={ () => navigate("/") }
             >
               Dashboard
             </button>
             <button
               className="btn btn-outline-danger"
-              onClick={() => navigate("/createAccount")}
+              onClick={ () => navigate("/createAccount") }
             >
               Create New Account
             </button>
           </div>
           <h3 className="text-center">Accounts</h3>
-          {isUsers ? (
+          { isUsers ? (
             <div className="table-responsive">
               <table className="table">
                 <thead>
@@ -39,22 +40,22 @@ const Accounts = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {users.map((user, index) => {
+                  { users.map((user, index) => {
                     return (
-                      <tr key={index}>
-                        <td>{user.branchCode}</td>
+                      <tr key={ index }>
+                        <td>{ user.branchCode }</td>
                         <td>
                           <Link to='#' className="text-decoration-none" >
-                            {user.accountNumber}
+                            { user.accountNumber }
                           </Link>
                         </td>
-                        <td>{user.name}</td>
-                        <td>{user.date}</td>
-                        <td>{user.accountType}</td>
-                        <td>{user.deposit}</td>
+                        <td>{ user.name }</td>
+                        <td>{ user.date }</td>
+                        <td>{ user.accountType }</td>
+                        <td>{ user.deposit }</td>
                       </tr>
                     );
-                  })}
+                  }) }
                 </tbody>
               </table>
             </div>
@@ -65,14 +66,14 @@ const Accounts = () => {
               <div className="text-center">
                 <button
                   className="btn btn-outline-success"
-                  onClick={() => navigate("/createAccount")}
+                  onClick={ () => navigate("/createAccount") }
                 >
                   Create New Account
                 </button>
               </div>
               <hr />
             </>
-          )}
+          ) }
         </div>
       </div>
     </div>
